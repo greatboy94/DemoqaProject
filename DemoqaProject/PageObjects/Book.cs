@@ -1,23 +1,21 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
 {
     public class Book
     {
-        private By bookText = By.ClassName("main-header");
-        //private By bookButton=By.XPath("//h5[text()='Book Store Application']");
-
-        public void ValidatePage(IWebDriver driver)
+        public class Forms
         {
-            IJavaScriptExecutor js=driver as IJavaScriptExecutor;
-            js.ExecuteScript("window.scrollBy(0,950);");
-            
-            //driver.FindElement(bookButton).Click();
-            string store = driver.FindElement(bookText).Text;
-            Assert.AreEqual("Book Store",store, "I am in the Book Store page");
-            Thread.Sleep(2000);
-            driver.Navigate().Back();
+            public Forms()
+            {
+                PageFactory.InitElements(Driver.driver, this);
+            }
+        
+            [FindsBy(How = How.ClassName, Using = "main-header")]
+            public IWebElement FormsText { get; set; }
+        
         }
     }
 }

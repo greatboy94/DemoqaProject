@@ -1,20 +1,18 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
 {
     public class Forms
     {
-        private By formsText = By.ClassName("main-header");
-        //private By formsButton=By.XPath("//h5[text()='Forms']");
-
-        public void ValidatePage(IWebDriver driver)
+        public Forms()
         {
-            //driver.FindElement(formsButton).Click();
-            string store = driver.FindElement(formsText).Text;
-            Assert.AreEqual("Forms",store, "I am in the Forms page");
-            Thread.Sleep(2000);
-            driver.Navigate().Back();
+            PageFactory.InitElements(Driver.driver, this);
         }
+        
+        [FindsBy(How = How.ClassName, Using = "main-header")]
+        public IWebElement FormsText { get; set; }
+        
     }
 }

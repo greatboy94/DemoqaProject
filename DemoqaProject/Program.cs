@@ -1,5 +1,6 @@
 ﻿using System;
 using DemoqaProject.PageObjects;
+using NUnit.Framework;
 
 namespace DemoqaProject
 {
@@ -7,14 +8,30 @@ namespace DemoqaProject
     {
         public static void Main(string[] args)
         {
-            
-            Driver.driver.Navigate().GoToUrl(Config.baseURL);
-            Driver.driver.Manage().Window.Maximize();
-
-            HomePage homePage = new HomePage();
-            homePage.elementButton.Click();
-           
+            //Actions.SetUpDriver();
+            //NavigateTo.ClickToElement();
         }
 
+        [SetUp]
+        public void SetUp()
+        {
+            Actions.SetUpDriver();
+        }
+        
+        [Test]
+        public void CheckElementText()
+        {
+            NavigateTo.ClickToElement();
+            Elements elements = new Elements();
+            var store = elements.elementsText.Text;
+            Assert.AreEqual(Config.GetTexts.elementsText, store, "Successful");
+        }
+        
+        [TearDown]
+        public void TearDown()
+        {
+            Thread.Sleep(2000);
+            Driver.driver.Quit();
+        }
     }
 }
