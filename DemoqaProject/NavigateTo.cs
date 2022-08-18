@@ -1,5 +1,6 @@
 using System;
 using DemoqaProject.PageObjects;
+using OpenQA.Selenium;
 
 namespace DemoqaProject
 {
@@ -38,6 +39,8 @@ namespace DemoqaProject
         public static void ClickToBooks()
         {
             HomePage homePage = new HomePage();
+            IJavaScriptExecutor js=Driver.driver as IJavaScriptExecutor;
+            js.ExecuteScript("window.scrollBy(0,950);");
             homePage.bookButton.Click();
         }
     }

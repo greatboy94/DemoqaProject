@@ -6,16 +6,12 @@ namespace DemoqaProject.PageObjects
 {
     public class Widgets
     {
-        public class Forms
-        {
-            public Forms()
-            {
-                PageFactory.InitElements(Driver.driver, this);
-            }
-        
-            [FindsBy(How = How.ClassName, Using = "main-header")]
-            public IWebElement FormsText { get; set; }
-        
+        public Widgets()
+        { 
+            PageFactory.InitElements(Driver.driver, this);
         }
+        
+        [FindsBy(How = How.ClassName, Using = "main-header")] 
+        public IWebElement WidgetsText { get; set; }
     }
 }

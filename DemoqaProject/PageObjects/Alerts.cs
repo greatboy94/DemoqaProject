@@ -6,16 +6,12 @@ namespace DemoqaProject.PageObjects
 {
     public class Alerts
     {
-        public class Forms
-        {
-            public Forms()
+        public Alerts()
             {
                 PageFactory.InitElements(Driver.driver, this);
             }
         
             [FindsBy(How = How.ClassName, Using = "main-header")]
             public IWebElement AlertsText { get; set; }
-            
-        }
     }
 }

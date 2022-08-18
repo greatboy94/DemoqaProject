@@ -6,16 +6,12 @@ namespace DemoqaProject.PageObjects
 {
     public class Interactions
     {
-        public class Forms
-        {
-            public Forms()
+            public Interactions()
             {
                 PageFactory.InitElements(Driver.driver, this);
             }
         
             [FindsBy(How = How.ClassName, Using = "main-header")]
-            public IWebElement FormsText { get; set; }
-        
-        }
+            public IWebElement InteractionsText { get; set; }
     }
 }

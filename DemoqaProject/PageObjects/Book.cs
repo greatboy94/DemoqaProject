@@ -6,16 +6,12 @@ namespace DemoqaProject.PageObjects
 {
     public class Book
     {
-        public class Forms
-        {
-            public Forms()
+        public Book()
             {
                 PageFactory.InitElements(Driver.driver, this);
             }
         
             [FindsBy(How = How.ClassName, Using = "main-header")]
-            public IWebElement FormsText { get; set; }
-        
-        }
+            public IWebElement BookText { get; set; }
     }
 }

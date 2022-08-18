@@ -11,22 +11,22 @@ namespace DemoqaProject.PageObjects
             PageFactory.InitElements(Driver.driver, this);
         }
         
-        [FindsBy(How = How.XPath, Using = "//h5[text()='Elements']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][1]")]
         public IWebElement elementButton { get; set; }
         
-        [FindsBy(How = How.XPath, Using = "//h5[text()='Forms']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][2]")]
         public IWebElement formsButton { get; set; }
         
-        [FindsBy(How = How.XPath, Using = "//h5[text()='Alerts, Frame & Windows']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][3]")]
         public IWebElement alertsButton { get; set; }
         
-        [FindsBy(How = How.XPath, Using = "//h5[text()='Widgets']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][4]")]
         public IWebElement widgetsButton { get; set; }
         
-        [FindsBy(How = How.XPath, Using = "//h5[text()='Interactions']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][5]")]
         public IWebElement interactionButton { get; set; }
         
-        [FindsBy(How = How.XPath, Using = "//h5[text()='Book Store Application']")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][6]")]
         public IWebElement bookButton { get; set; }
     }
 }
