@@ -8,11 +8,11 @@ namespace DemoqaProject
         [Test]
         public void CheckWidgetsText()
         {
-            String getHeader = Config.formsText;
+            String getHeader = Config.widgetsText;
             HomePage homePage = new HomePage();
-            Forms forms = new Forms();
-            homePage.ClickForm();
-            Assert.AreEqual(getHeader, forms.GetHeaderText());
+            Widgets widgets = new Widgets();
+            homePage.ClickWidget();
+            Assert.AreEqual(getHeader, widgets.GetHeaderText());
         }
     }   
 }

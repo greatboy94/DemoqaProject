@@ -24,7 +24,6 @@ namespace DemoqaProject
         [TearDown]
         public void TearDown()
         {
-            Thread.Sleep(3000);
             driver.Close();
             driver.Quit();
         }
