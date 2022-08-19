@@ -3,17 +3,16 @@ using NUnit.Framework;
 
 namespace DemoqaProject
 {
-    public class Program1 : BaseSeleniumTest
+    public class WidgetsTest : BaseSeleniumTest
     {
         [Test]
-        public void CheckFormText()
+        public void CheckWidgetsText()
         {
             String getHeader = Config.formsText;
             HomePage homePage = new HomePage();
-            Forms form = new Forms();
+            Forms forms = new Forms();
             homePage.ClickForm();
-            Assert.AreEqual(getHeader, form.GetHeaderText());
+            Assert.AreEqual(getHeader, forms.GetHeaderText());
         }
-    }    
+    }   
 }
-

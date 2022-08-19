@@ -4,20 +4,20 @@ using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
 {
-    public class Elements : BaseSeleniumPage
+    public class Alerts : BaseSeleniumPage
     {
-        public Elements()
-        {
-            PageFactory.InitElements(driver, this);
-        }
         
         [FindsBy(How = How.ClassName, Using = "main-header")]
-        public IWebElement elementsText { get; set; }
-
-        public String GetHeaderText()
-        {
-            return elementsText.Text;
+        public IWebElement AlertsText { get; set; }
+        
+        public Alerts() 
+        { 
+            PageFactory.InitElements(driver, this);
         }
 
+        public String GetHeaderText()
+        { 
+            return AlertsText.Text;
+        }
     }
 }

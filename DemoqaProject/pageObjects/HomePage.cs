@@ -30,7 +30,7 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][6]")]
         public IWebElement bookButton { get; set; }
 
-        public Elements ClickElem()
+        public Elements ClickElement()
         {
             elementButton.Click();
             return new Elements();
@@ -39,6 +39,28 @@ namespace DemoqaProject.PageObjects
         {
             formsButton.Click();
             return new Forms();
+        }
+        public Alerts ClickAlert()
+        {
+            alertsButton.Click();
+            return new Alerts();
+        }
+        public Widgets ClickWidget()
+        {
+            widgetsButton.Click();
+            return new Widgets();
+        }
+        public Interactions ClickInteraction()
+        {
+            interactionButton.Click();
+            return new Interactions();
+        }
+        public Book ClickBook()
+        {
+            IJavaScriptExecutor js=driver as IJavaScriptExecutor;
+            js.ExecuteScript("window.scrollBy(0,950);");
+            bookButton.Click();
+            return new Book();
         }
     }
 }

@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace DemoqaProject
 {
-    public class Program : BaseSeleniumTest
+    public class ElementsTest : BaseSeleniumTest
     {
        
         [Test]
@@ -14,7 +14,7 @@ namespace DemoqaProject
             String getHeader = Config.elementsText;
             HomePage homePage = new HomePage();
             Elements el = new Elements();
-            homePage.ClickElem();
+            homePage.ClickElement();
             Assert.AreEqual(getHeader, el.GetHeaderText());
         }
     }
