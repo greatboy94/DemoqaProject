@@ -4,11 +4,12 @@ using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
 {
-    public class HomePage
+    public class HomePage : BaseSeleniumPage
     {
         public HomePage()
         {
-            PageFactory.InitElements(Driver.driver, this);
+            driver.Navigate().GoToUrl(Config.baseURL);
+            PageFactory.InitElements(driver, this);
         }
         
         [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][1]")]
@@ -28,5 +29,16 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//div[@class='card mt-4 top-card'][6]")]
         public IWebElement bookButton { get; set; }
+
+        public Elements ClickElem()
+        {
+            elementButton.Click();
+            return new Elements();
+        }
+        public Forms ClickForm()
+        {
+            formsButton.Click();
+            return new Forms();
+        }
     }
 }

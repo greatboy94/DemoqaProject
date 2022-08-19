@@ -1,5 +1,6 @@
 using System;
 using DemoqaProject.PageObjects;
+using OpenQA.Selenium;
 
 namespace DemoqaProject
 {

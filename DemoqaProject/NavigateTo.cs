@@ -11,19 +11,19 @@ namespace DemoqaProject
             HomePage homePage = new HomePage();
             homePage.elementButton.Click();
         }
-        
+
         public static void ClickToForms()
         {
             HomePage homePage = new HomePage();
             homePage.formsButton.Click();
         }
-        
+
         public static void ClickToAlerts()
         {
             HomePage homePage = new HomePage();
             homePage.alertsButton.Click();
         }
-        
+
         public static void ClickToWidgets()
         {
             HomePage homePage = new HomePage();
