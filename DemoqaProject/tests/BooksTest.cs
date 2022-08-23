@@ -8,11 +8,10 @@ namespace DemoqaProject
         [Test]
         public void CheckBooksText()
         {
-            String getHeader = Config.bookText;
             HomePage homePage = new HomePage();
+            homePage.NavigateToBookPage();
             Book book = new Book();
-            homePage.ClickBook();
-            Assert.AreEqual(getHeader, book.GetHeaderText());
+            Assert.AreEqual(StoreElementTexts.bookText, book.GetHeaderText());
         }
     }   
 }

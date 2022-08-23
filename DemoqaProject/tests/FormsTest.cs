@@ -8,11 +8,10 @@ namespace DemoqaProject
         [Test]
         public void CheckFormText()
         {
-            String getHeader = Config.formsText;
             HomePage homePage = new HomePage();
-            Forms form = new Forms();
-            homePage.ClickForm();
-            Assert.AreEqual(getHeader, form.GetHeaderText());
+            homePage.NavigateToFormsPage();
+            Forms forms = new Forms();
+            Assert.AreEqual(StoreElementTexts.formsText, forms.GetHeaderText());
         }
     }    
 }

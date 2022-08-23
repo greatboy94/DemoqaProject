@@ -8,11 +8,10 @@ namespace DemoqaProject
         [Test]
         public void CheckAlertsText()
         {
-            String getHeader = Config.alertsText;
             HomePage homePage = new HomePage();
+            homePage.NavigateToAlertsPage();
             Alerts alerts = new Alerts();
-            homePage.ClickAlert();
-            Assert.AreEqual(getHeader, alerts.GetHeaderText());
+            Assert.AreEqual(StoreElementTexts.alertsText, alerts.GetHeaderText());
         }
     }   
 }

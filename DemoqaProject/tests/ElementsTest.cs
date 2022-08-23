@@ -11,11 +11,10 @@ namespace DemoqaProject
         [Test]
         public void CheckElementText()
         {
-            String getHeader = Config.elementsText;
             HomePage homePage = new HomePage();
-            Elements el = new Elements();
-            homePage.ClickElement();
-            Assert.AreEqual(getHeader, el.GetHeaderText());
+            homePage.NavigateToElementPage();
+            Elements elements = new Elements();
+            Assert.AreEqual(StoreElementTexts.elementsText, elements.GetHeaderText());
         }
     }
 }

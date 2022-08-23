@@ -8,11 +8,10 @@ namespace DemoqaProject
         [Test]
         public void CheckInteractionsText()
         {
-            String getHeader = Config.interactionText;
             HomePage homePage = new HomePage();
+            homePage.NavigateToInteractionsPage();
             Interactions interactions = new Interactions();
-            homePage.ClickInteraction();
-            Assert.AreEqual(getHeader, interactions.GetHeaderText());
+            Assert.AreEqual(StoreElementTexts.interactionText, interactions.GetHeaderText());
         }
     }   
 }
