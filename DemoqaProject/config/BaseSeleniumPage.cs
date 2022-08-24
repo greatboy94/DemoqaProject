@@ -15,10 +15,10 @@ namespace DemoqaProject
             driver = webDriver;
         }
 
-        public void JSExecuter()
+        public void JSExecuter(IWebElement element)
         {
             IJavaScriptExecutor js=driver as IJavaScriptExecutor;
-            js.ExecuteScript("window.scrollBy(0,950);");
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
 
         public string GetHeaderText()
