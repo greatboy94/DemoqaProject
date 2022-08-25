@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -39,8 +38,9 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//p[@id='permanentAddress']")]
         public IWebElement permanentAddressText;
-        
-        
+
+        [FindsBy(How = How.XPath, Using = "//input[@class='mr-sm-2 field-error form-control']")]
+        public IWebElement errorClass;
 
         public Elements()
         {
@@ -61,6 +61,7 @@ namespace DemoqaProject.PageObjects
             
         }
 
+        //Getting text of elements
         public string FullNameText()
         {
             return fullnameText.Text;
@@ -80,7 +81,21 @@ namespace DemoqaProject.PageObjects
         {
             return permanentAddressText.Text;
         }
-        
 
+        //Getting placeholders
+        public string GetFNamePlaceholder()
+        {
+            return fullNameInput.GetAttribute("placeholder");
+        }
+
+        public string GetEmailPlaceholder()
+        {
+            return emailInput.GetAttribute("placeholder");
+        }
+
+        public string GetCurrentAddPlaceholder()
+        {
+            return currentAddressInput.GetAttribute("placeholder");
+        }
     }
 }

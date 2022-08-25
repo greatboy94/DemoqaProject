@@ -1,13 +1,11 @@
-﻿using System;
-using DemoqaProject.PageObjects;
+﻿using DemoqaProject.PageObjects;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace DemoqaProject
 {
     public class ElementsTest : BaseSeleniumTest
     {
-       
+        
         [Test]
         public void CheckElementText()
         {
@@ -17,11 +15,28 @@ namespace DemoqaProject
             Assert.AreEqual(StoreElementTexts.elementsText, elements.GetHeaderText());
             
             elements.NavigateToTextBox(StoreElementTexts.fullName, StoreElementTexts.email, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
+            
+            //Checking correct inputs and outputs
             Assert.That(elements.FullNameText(), Does.Contain(StoreElementTexts.fullName));
             Assert.That(elements.EmailText(), Does.Contain(StoreElementTexts.email));
             Assert.That(elements.CurrentAdText(), Does.Contain(StoreElementTexts.currentAddress));
             Assert.That(elements.PerAdText(), Does.Contain(StoreElementTexts.permanentAddress));
-            Thread.Sleep(5000);
+            
+            //Checking placeholders
+            Assert.AreEqual(StoreElementTexts.fNamePH, elements.GetFNamePlaceholder());
+            Assert.AreEqual(StoreElementTexts.emailPH, elements.GetEmailPlaceholder());
+            Assert.AreEqual(StoreElementTexts.currentPH, elements.GetCurrentAddPlaceholder());
+            Thread.Sleep(3000);
+        }
+
+        [Test]
+        public void CheckInvalidEmail()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            Elements elements = new Elements();
+            elements.NavigateToTextBox(StoreElementTexts.fullName, StoreElementTexts.invalidEmail, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
+            Assert.IsTrue(elements.errorClass.Displayed);
         }
     }
 }
