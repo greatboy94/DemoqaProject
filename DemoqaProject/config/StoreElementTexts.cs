@@ -19,5 +19,8 @@ namespace DemoqaProject
         public static string fNamePH = "Full Name";
         public static string emailPH = "name@example.com";
         public static string currentPH = "Current Address";
+
+        public static string selectedAll =
+            "home desktop notes commands documents workspace react angular veu office public private classified general downloads wordFile excelFile";
     }
 }
