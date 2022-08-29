@@ -66,6 +66,21 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//button[@title='Collapse all']")]
         public IWebElement collapseAll;
+        
+        [FindsBy(How = How.XPath, Using = "//span[text()='Radio Button']")]
+        public IWebElement radioButton;
+        
+        [FindsBy(How = How.XPath, Using = "//label[@for='yesRadio']")]
+        public IWebElement yesRadio;
+        
+        [FindsBy(How = How.XPath, Using = "//label[@for='impressiveRadio']")]
+        public IWebElement impressiveRadio;
+        
+        [FindsBy(How = How.XPath, Using = "//label[@for='noRadio']")]
+        public IWebElement noRadio;
+        
+        [FindsBy(How = How.ClassName, Using = "mt-3")]
+        public IWebElement checkState;
 
         public Elements()
         {
@@ -174,6 +189,26 @@ namespace DemoqaProject.PageObjects
         {
             expendAll.Click();
             collapseAll.Click();
+        }
+
+        public void NavigateToRadioButton()
+        {
+            radioButton.Click();
+        }
+
+        public void CheckYesRadio()
+        {
+            yesRadio.Click();
+        }
+        
+        public void CheckImpressiveRadio()
+        {
+            impressiveRadio.Click();
+        }
+        
+        public void CheckMultipleSelection()
+        {
+            
         }
     }
 }
