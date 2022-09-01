@@ -81,6 +81,61 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.ClassName, Using = "mt-3")]
         public IWebElement checkState;
+        
+        [FindsBy(How = How.XPath, Using = "//span[text()='Web Tables']")]
+        public IWebElement WebTablesButton;
+        
+        [FindsBy(How = How.Id, Using = "addNewRecordButton")]
+        public IWebElement AddButton;
+        
+        [FindsBy(How = How.Id, Using = "firstName")]
+        public IWebElement firstNameInput;
+        
+        [FindsBy(How = How.Id, Using = "lastName")]
+        public IWebElement lastNameInput;
+        
+        [FindsBy(How = How.Id, Using = "userEmail")]
+        public IWebElement userEmailInput;
+        
+        [FindsBy(How = How.Id, Using = "age")]
+        public IWebElement ageInput;
+        
+        [FindsBy(How = How.Id, Using = "salary")]
+        public IWebElement salaryInput;
+        
+        [FindsBy(How = How.Id, Using = "department")]
+        public IWebElement departmentInput;
+        
+        [FindsBy(How = How.Id, Using = "submit")]
+        public IWebElement submitForm;
+        
+        [FindsBy(How = How.Id, Using = "edit-record-4")]
+        public IWebElement editRecord;
+        
+        [FindsBy(How = How.Id, Using = "delete-record-4")]
+        public IWebElement deleteRecord;
+
+        [FindsBy(How = How.XPath, Using = "//div[@class='rt-td']")]
+        public IWebElement checkFirstname;
+        
+        [FindsBy(How = How.XPath, Using = "//option[@value='5']")]
+        public IWebElement valueRows;
+        
+        [FindsBy(How = How.XPath, Using = "//select[@aria-label='rows per page']")]
+        public IWebElement rowChangeto5;
+        
+        [FindsBy(How = How.XPath, Using = "//*[text()='Previous']")]
+        public IWebElement previousButton;
+        
+        [FindsBy(How = How.XPath, Using = "//*[text()='Next']")]
+        public IWebElement nextButton;
+        
+        [FindsBy(How = How.ClassName, Using = "-totalPages")]
+        public IWebElement totalPages;
+        
+        [FindsBy(How = How.Id, Using = "searchBox")]
+        public IWebElement searchBox;
+        
 
         public Elements()
         {
@@ -205,10 +260,70 @@ namespace DemoqaProject.PageObjects
         {
             impressiveRadio.Click();
         }
-        
-        public void CheckMultipleSelection()
+
+        public void NavigateToWebTables(string firstname, string lastname, string email, string age, string salary, string department)
         {
-            
+            WebTablesButton.Click();
+            AddButton.Click();
+            firstNameInput.SendKeys(firstname);
+            lastNameInput.SendKeys(lastname);
+            emailInput.SendKeys(email);
+            ageInput.SendKeys(age);
+            salaryInput.SendKeys(salary);
+            departmentInput.SendKeys(department);
+            submitForm.Click();
+        }
+
+        public void EditRecord()
+        {
+            editRecord.Click();
+            firstNameInput.Clear();
+            firstNameInput.SendKeys("Tom");
+            submitForm.Click();
+        }
+
+        public bool CheckName(string name)
+        {
+            ReadOnlyCollection<IWebElement> checkbox = driver.FindElements(By.XPath("//div[@class='rt-td']"));
+            return checkbox.Any(checkFirstname => checkFirstname.Text.Equals(name));
+        }
+
+        public void DeleteRecord()
+        {
+            deleteRecord.Click();
+        }
+
+        public void ChangeRows()
+        {
+            JSExecuter(rowChangeto5);
+            rowChangeto5.Click();
+            valueRows.Click();
+        }
+
+        public void ClickNext()
+        {
+            nextButton.Click();
+        }
+        
+        public void ClickPrevious()
+        {
+            previousButton.Click();
+        }
+
+        public void CheckSorting()
+        {
+            ReadOnlyCollection<IWebElement> checkbox = driver.FindElements(By.XPath("//div[@class='rt-resizable-header-content']"));
+            foreach (IWebElement el in checkbox)
+            {
+                Thread.Sleep(2000);
+                el.Click();
+            }
+        }
+
+        public void CheckSearch(string searchText)
+        {
+            searchBox.Click();
+            searchBox.SendKeys(searchText);
         }
     }
 }
