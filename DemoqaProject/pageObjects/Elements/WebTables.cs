@@ -5,6 +5,14 @@ namespace DemoqaProject.PageObjects
 {
     public class WebTables : Elements
     {
+        public static string firstName = "Denzel";
+        public static string lastName = "Washington";
+        public static string emailForm = "Denzel@gmail.com";
+        public static string age = "67";
+        public static string salary = "3500";
+        public static string department = "New York, Mount Vernon";
+        public static string pageNumber = "2";
+        
         [FindsBy(How = How.Id, Using = "addNewRecordButton")]
         public IWebElement addButton;
         
@@ -35,9 +43,6 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.Id, Using = "delete-record-4")]
         public IWebElement deleteRecord;
 
-        [FindsBy(How = How.XPath, Using = "//div[@class='rt-td']")]
-        public IWebElement checkFirstname;
-        
         [FindsBy(How = How.XPath, Using = "//option[@value='5']")]
         public IWebElement valueRows;
         
@@ -74,11 +79,11 @@ namespace DemoqaProject.PageObjects
             submitForm.Click();
         }
         
-        public void EditRecord()
+        public void EditRecord(string name)
         {
             editRecord.Click();
             firstNameInput.Clear();
-            firstNameInput.SendKeys("Tom");
+            firstNameInput.SendKeys(name);
             submitForm.Click();
         }
 

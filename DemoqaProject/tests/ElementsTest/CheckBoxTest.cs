@@ -6,7 +6,7 @@ namespace DemoqaProject
     public class CheckBoxTest : BaseSeleniumTest
     {
         [Test]
-        public void SelectAll()
+        public void SelectAllCategories()
         {
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
@@ -20,7 +20,7 @@ namespace DemoqaProject
             Thread.Sleep(3000);
             Assert.IsFalse(checkBox.selectAll.Selected);
             
-            checkBox.SpecificCategories();
+            checkBox.SelectSpecificCategories();
             checkBox.SelectGroupAndUncheckSub();
             checkBox.ExpendAndCollapseAll();
 

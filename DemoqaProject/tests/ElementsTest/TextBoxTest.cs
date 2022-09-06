@@ -15,13 +15,13 @@ namespace DemoqaProject
             Elements elements = new Elements();
             elements.NavigateToTextBox();
             TextBox textBox = new TextBox();
-            textBox.FillForm(StoreElementTexts.fullName, StoreElementTexts.email, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
+            textBox.FillForm(TextBox.fullName, TextBox.email, TextBox.currentAddress, TextBox.permanentAddress);
             
             //Checking correct inputs and outputs
-            Assert.That(textBox.FullNameText(), Does.Contain(StoreElementTexts.fullName));
-            Assert.That(textBox.EmailText(), Does.Contain(StoreElementTexts.email));
-            Assert.That(textBox.CurrentAdText(), Does.Contain(StoreElementTexts.currentAddress));
-            Assert.That(textBox.PerAdText(), Does.Contain(StoreElementTexts.permanentAddress));
+            Assert.That(textBox.FullNameText(), Does.Contain(TextBox.fullName));
+            Assert.That(textBox.EmailText(), Does.Contain(TextBox.email));
+            Assert.That(textBox.CurrentAdText(), Does.Contain(TextBox.currentAddress));
+            Assert.That(textBox.PerAdText(), Does.Contain(TextBox.permanentAddress));
             
             //Checking placeholders
             Assert.AreEqual(StoreElementTexts.fNamePH, textBox.GetFNamePlaceholder());
@@ -39,7 +39,7 @@ namespace DemoqaProject
             Elements elements = new Elements();
             elements.NavigateToTextBox();
             TextBox textBox = new TextBox();
-            textBox.FillForm(StoreElementTexts.fullName, StoreElementTexts.invalidEmail, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
+            textBox.FillForm(TextBox.fullName, TextBox.invalidEmail, TextBox.currentAddress, TextBox.permanentAddress);
             Assert.IsTrue(textBox.errorClass.Displayed);
             Thread.Sleep(5000);
         }

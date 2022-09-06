@@ -5,6 +5,12 @@ namespace DemoqaProject.PageObjects
 {
     public class TextBox : Elements
     {
+        public static string fullName = "Andrew Garfield";
+        public static string email = "Andrew@gmail.com";
+        public static string currentAddress = "Wall Street 23";
+        public static string permanentAddress = "Wisconsin Dells 18";
+        public static string invalidEmail="Andrew123";
+        
         [FindsBy(How = How.XPath, Using = "//input[@id='userName']")]
         public IWebElement fullNameInput;
 

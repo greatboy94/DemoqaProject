@@ -52,7 +52,7 @@ namespace DemoqaProject.PageObjects
             selectAll.Click();
         }
 
-        public void SpecificCategories()
+        public void SelectSpecificCategories()
         {
             //Select specific category and verify
             arrowButton.Click();
