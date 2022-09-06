@@ -13,18 +13,20 @@ namespace DemoqaProject
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
             Elements elements = new Elements();
-            elements.NavigateToTextBox(StoreElementTexts.fullName, StoreElementTexts.email, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
+            elements.NavigateToTextBox();
+            TextBox textBox = new TextBox();
+            textBox.FillForm(StoreElementTexts.fullName, StoreElementTexts.email, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
             
             //Checking correct inputs and outputs
-            Assert.That(elements.FullNameText(), Does.Contain(StoreElementTexts.fullName));
-            Assert.That(elements.EmailText(), Does.Contain(StoreElementTexts.email));
-            Assert.That(elements.CurrentAdText(), Does.Contain(StoreElementTexts.currentAddress));
-            Assert.That(elements.PerAdText(), Does.Contain(StoreElementTexts.permanentAddress));
+            Assert.That(textBox.FullNameText(), Does.Contain(StoreElementTexts.fullName));
+            Assert.That(textBox.EmailText(), Does.Contain(StoreElementTexts.email));
+            Assert.That(textBox.CurrentAdText(), Does.Contain(StoreElementTexts.currentAddress));
+            Assert.That(textBox.PerAdText(), Does.Contain(StoreElementTexts.permanentAddress));
             
             //Checking placeholders
-            Assert.AreEqual(StoreElementTexts.fNamePH, elements.GetFNamePlaceholder());
-            Assert.AreEqual(StoreElementTexts.emailPH, elements.GetEmailPlaceholder());
-            Assert.AreEqual(StoreElementTexts.currentPH, elements.GetCurrentAddPlaceholder());
+            Assert.AreEqual(StoreElementTexts.fNamePH, textBox.GetFNamePlaceholder());
+            Assert.AreEqual(StoreElementTexts.emailPH, textBox.GetEmailPlaceholder());
+            Assert.AreEqual(StoreElementTexts.currentPH, textBox.GetCurrentAddPlaceholder());
             Thread.Sleep(3000);
         }
         
@@ -35,8 +37,10 @@ namespace DemoqaProject
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
             Elements elements = new Elements();
-            elements.NavigateToTextBox(StoreElementTexts.fullName, StoreElementTexts.invalidEmail, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
-            Assert.IsTrue(elements.errorClass.Displayed);
+            elements.NavigateToTextBox();
+            TextBox textBox = new TextBox();
+            textBox.FillForm(StoreElementTexts.fullName, StoreElementTexts.invalidEmail, StoreElementTexts.currentAddress, StoreElementTexts.permanentAddress);
+            Assert.IsTrue(textBox.errorClass.Displayed);
             Thread.Sleep(5000);
         }
     }

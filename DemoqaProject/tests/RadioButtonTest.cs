@@ -12,13 +12,14 @@ namespace DemoqaProject
             homePage.NavigateToElementPage();
             Elements elements = new Elements();
             elements.NavigateToRadioButton();
+            RadioButton radioButton = new RadioButton();
             
-            elements.CheckYesRadio();
-            Assert.That(elements.checkState.Text, Does.Contain("Yes"));
-            elements.CheckImpressiveRadio();
-            Assert.That(elements.checkState.Text, Does.Contain("Impressive"));
+            radioButton.CheckYesRadio();
+            Assert.That(radioButton.checkState.Text, Does.Contain("Yes"));
+            radioButton.CheckImpressiveRadio();
+            Assert.That(radioButton.checkState.Text, Does.Contain("Impressive"));
             
-            Assert.IsTrue(elements.noRadio.Enabled);
+            Assert.IsTrue(radioButton.noRadio.Enabled);
             Thread.Sleep(5000);
         }
     }

@@ -11,38 +11,40 @@ namespace DemoqaProject
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
             Elements elements = new Elements();
-            
+            WebTables webTables = new WebTables();
+
             //Filling form
-            elements.NavigateToWebTables(StoreElementTexts.firstName, StoreElementTexts.lastName, StoreElementTexts.email, StoreElementTexts.age, StoreElementTexts.salary, StoreElementTexts.department);
+            elements.NavigateToWebTables();
+            webTables.RegistrationForm(StoreElementTexts.firstName, StoreElementTexts.lastName, StoreElementTexts.email, StoreElementTexts.age, StoreElementTexts.salary, StoreElementTexts.department);
             //Checking added user with name Denzel
-            Assert.IsTrue(elements.CheckName("Denzel"));
+            Assert.IsTrue(webTables.CheckName("Denzel"));
             //Editing existing record
-            elements.EditRecord();
+            webTables.EditRecord();
             //Checking edite user with name Tom
-            Assert.IsTrue(elements.CheckName("Tom"));
+            Assert.IsTrue(webTables.CheckName("Tom"));
             //Deleting existing record
-            elements.DeleteRecord();
+            webTables.DeleteRecord();
             //Checking user name Tom deleted
-            Assert.IsFalse(elements.CheckName("Tom"));
+            Assert.IsFalse(webTables.CheckName("Tom"));
             //Changing rows to 5 checking for pagination
-            elements.ChangeRows();
+            webTables.ChangeRows();
             
             //Adding more record for checking pagination
             for (int i = 0; i < 3; i++)
             {
-                elements.NavigateToWebTables(StoreElementTexts.firstName, StoreElementTexts.lastName, StoreElementTexts.email, StoreElementTexts.age, StoreElementTexts.salary, StoreElementTexts.department);
+                webTables.RegistrationForm(StoreElementTexts.firstName, StoreElementTexts.lastName, StoreElementTexts.email, StoreElementTexts.age, StoreElementTexts.salary, StoreElementTexts.department);
             }
             //Clicking to Next and Previous button
-            elements.ClickNext();
+            webTables.ClickNext();
             Thread.Sleep(5000);
-            elements.ClickPrevious();
+            webTables.ClickPrevious();
             
             //Clicking to sorting table
-            elements.CheckSorting();
+            webTables.CheckSorting();
             //Checking page results
-            Assert.AreEqual("2",elements.totalPages.Text);
+            Assert.AreEqual("2",webTables.totalPages.Text);
             //Search Box test
-            elements.CheckSearch(StoreElementTexts.firstName);
+            webTables.CheckSearch(StoreElementTexts.firstName);
             Thread.Sleep(5000);
         }
     }

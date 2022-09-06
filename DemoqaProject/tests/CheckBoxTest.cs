@@ -12,15 +12,17 @@ namespace DemoqaProject
             homePage.NavigateToElementPage();
             Elements elements = new Elements();
             elements.NavigateToCheckBox();
+            CheckBox checkBox = new CheckBox();
 
+            checkBox.SelectAll();
             Thread.Sleep(3000);
-            elements.Count();
+            checkBox.Count(17);
             Thread.Sleep(3000);
-            Assert.IsFalse(elements.selectAll.Selected);
+            Assert.IsFalse(checkBox.selectAll.Selected);
             
-            elements.SpecificCategories();
-            elements.SelectGroupAndUncheckSub();
-            elements.ExpendAndCollapseAll();
+            checkBox.SpecificCategories();
+            checkBox.SelectGroupAndUncheckSub();
+            checkBox.ExpendAndCollapseAll();
 
             Thread.Sleep(5000);
         }
