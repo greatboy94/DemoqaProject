@@ -5,11 +5,12 @@ namespace DemoqaProject.PageObjects
 {
     public class CheckBox : Elements
     {
+        
+        public List<string> expectedTexts = new List<string>() {"desktop", "notes", "commands"};
+        public List<string> commandsText = new List<string>() {"commands"};
+
         [FindsBy(How = How.ClassName, Using = "rct-checkbox")]
         public IWebElement selectAll;
-
-        [FindsBy(How = How.Id, Using = "result")]
-        public IWebElement checkSelectedResult;
 
         [FindsBy(How = How.XPath, Using = "//button[@class='rct-collapse rct-collapse-btn'][1]")]
         public IWebElement arrowButton;
@@ -19,13 +20,7 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//span[text()='Commands']")]
         public IWebElement commandsButton;
-        
-        [FindsBy(How = How.XPath, Using = "//button[@title='Expand all']")]
-        public IWebElement expendAll;
-        
-        [FindsBy(How = How.XPath, Using = "//button[@title='Collapse all']")]
-        public IWebElement collapseAll;
-        
+
         [FindsBy(How = How.XPath, Using = "//span[@class='text-success']")]
         public IList<IWebElement> textSuccess;
         
@@ -36,52 +31,33 @@ namespace DemoqaProject.PageObjects
         {
             selectAll.Click();
         }
-        
-        public void Count(int number)
-        {
-            IList<IWebElement> checkbox = textSuccess;
-            Console.WriteLine(checkbox.Count);
-            if (checkbox.Count==number)
-            {
-                Console.WriteLine("Selected all");
-            }
-            else if (!selectAll.Selected)
-            {
-                Console.WriteLine("Deselected all");
-            }
-            selectAll.Click();
-        }
 
-        public void SelectSpecificCategories()
+        public List<string> SelectSpecificCategories()
         {
-            //Select specific category and verify
             arrowButton.Click();
-            if (!desktopButton.Selected)
+            desktopButton.Click();
+            List<string> storeTexts = new List<string>();
+            IList<IWebElement> getTexts = textSuccess;
+            foreach (var el in getTexts)
             {
-                desktopButton.Click();
-                Console.WriteLine("Category Desktop selected");
+                storeTexts.Add(el.Text);
             }
-            else
-            {
-                Console.WriteLine("Category Desktop not selected");
-            }
+            return storeTexts;
         }
 
-        public void SelectGroupAndUncheckSub()
+        public List<string> SelectGroupAndUncheckSub()
         {
             IList<IWebElement> checkbox = collapseButton;
+            checkbox[0].Click();
             checkbox[1].Click();
-            if (!commandsButton.Selected)
+            commandsButton.Click();
+            List<string> storeTexts = new List<string>();
+            IList<IWebElement> getTexts = textSuccess;
+            foreach (var el in getTexts)
             {
-                commandsButton.Click();
-                Console.WriteLine("Sub group deselected");
+                storeTexts.Add(el.Text);
             }
-        }
-
-        public void ExpendAndCollapseAll()
-        {
-            expendAll.Click();
-            collapseAll.Click();
+            return storeTexts;
         }
     }   
 }

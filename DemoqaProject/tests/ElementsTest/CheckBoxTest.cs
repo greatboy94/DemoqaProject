@@ -8,23 +8,52 @@ namespace DemoqaProject
         [Test]
         public void SelectAllCategories()
         {
+            //Appears 17 classes when selected all
+            int allSelectedClasses = 17;
+            
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
-            Elements elements = new Elements();
-            elements.NavigateToCheckBox();
             CheckBox checkBox = new CheckBox();
+            checkBox.NavigateToCheckBox();
 
             checkBox.SelectAll();
-            Thread.Sleep(3000);
-            checkBox.Count(17);
-            Thread.Sleep(3000);
-            Assert.IsFalse(checkBox.selectAll.Selected);
-            
-            checkBox.SelectSpecificCategories();
-            checkBox.SelectGroupAndUncheckSub();
-            checkBox.ExpendAndCollapseAll();
+            Assert.IsTrue(checkBox.textSuccess.Count==allSelectedClasses);
+        }
 
-            Thread.Sleep(5000);
+        [Test]
+        public void DeselectAllCategories()
+        {
+            //Appears 0 classes when deselected all
+            int allSelectedClasses = 0;
+            
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            CheckBox checkBox = new CheckBox();
+            checkBox.NavigateToCheckBox();
+            
+            Assert.IsTrue(checkBox.textSuccess.Count==allSelectedClasses);
+        }
+        
+        [Test]
+        public void SelectSpecificCategories()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            CheckBox checkBox = new CheckBox();
+            checkBox.NavigateToCheckBox();
+            
+            Assert.AreEqual(checkBox.expectedTexts, checkBox.SelectSpecificCategories());
+        }
+        
+        [Test]
+        public void SelectGroupAndUncheckSubs()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            CheckBox checkBox = new CheckBox();
+            checkBox.NavigateToCheckBox();
+            
+            Assert.AreEqual(checkBox.commandsText, checkBox.SelectGroupAndUncheckSub());
         }
     }
 }

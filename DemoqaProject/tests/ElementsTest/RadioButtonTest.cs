@@ -10,17 +10,23 @@ namespace DemoqaProject
         {
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
-            Elements elements = new Elements();
-            elements.NavigateToRadioButton();
             RadioButton radioButton = new RadioButton();
+            radioButton.NavigateToRadioButton();
             
             radioButton.CheckYesRadio();
             Assert.That(radioButton.checkState.Text, Does.Contain("Yes"));
             radioButton.CheckImpressiveRadio();
             Assert.That(radioButton.checkState.Text, Does.Contain("Impressive"));
+        }
+
+        public void CheckNoButton()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            RadioButton radioButton = new RadioButton();
+            radioButton.NavigateToRadioButton();
             
             Assert.IsTrue(radioButton.noRadio.Enabled);
-            Thread.Sleep(5000);
         }
     }
 }

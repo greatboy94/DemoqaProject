@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
@@ -12,6 +13,8 @@ namespace DemoqaProject.PageObjects
         public static string salary = "3500";
         public static string department = "New York, Mount Vernon";
         public static string pageNumber = "2";
+
+        public static string option = "5";
         
         [FindsBy(How = How.Id, Using = "addNewRecordButton")]
         public IWebElement addButton;
@@ -43,11 +46,8 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.Id, Using = "delete-record-4")]
         public IWebElement deleteRecord;
 
-        [FindsBy(How = How.XPath, Using = "//option[@value='5']")]
-        public IWebElement valueRows;
-        
         [FindsBy(How = How.XPath, Using = "//select[@aria-label='rows per page']")]
-        public IWebElement rowChangeto5;
+        public IWebElement pagination;
         
         [FindsBy(How = How.XPath, Using = "//*[text()='Previous']")]
         public IWebElement previousButton;
@@ -98,11 +98,10 @@ namespace DemoqaProject.PageObjects
             deleteRecord.Click();
         }
 
-        public void ChangeRows()
+        public void Pagination()
         {
-            JSExecuter(rowChangeto5);
-            rowChangeto5.Click();
-            valueRows.Click();
+            SelectElement selectElement = new SelectElement(pagination);
+            selectElement.SelectByValue(option);
         }
 
         public void ClickNext()=>nextButton.Click();
@@ -114,7 +113,6 @@ namespace DemoqaProject.PageObjects
             IList<IWebElement> checkbox = sorting;
             foreach (IWebElement el in checkbox)
             {
-                Thread.Sleep(2000);
                 el.Click();
             }
         }

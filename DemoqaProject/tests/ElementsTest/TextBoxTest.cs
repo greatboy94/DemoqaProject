@@ -9,12 +9,10 @@ namespace DemoqaProject
         [Test]
         public void FillForm()
         {
-            
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
-            Elements elements = new Elements();
-            elements.NavigateToTextBox();
             TextBox textBox = new TextBox();
+            textBox.NavigateToTextBox();
             textBox.FillForm(TextBox.fullName, TextBox.email, TextBox.currentAddress, TextBox.permanentAddress);
             
             //Checking correct inputs and outputs
@@ -22,26 +20,32 @@ namespace DemoqaProject
             Assert.That(textBox.EmailText(), Does.Contain(TextBox.email));
             Assert.That(textBox.CurrentAdText(), Does.Contain(TextBox.currentAddress));
             Assert.That(textBox.PerAdText(), Does.Contain(TextBox.permanentAddress));
-            
-            //Checking placeholders
-            Assert.AreEqual(StoreElementTexts.fNamePH, textBox.GetFNamePlaceholder());
-            Assert.AreEqual(StoreElementTexts.emailPH, textBox.GetEmailPlaceholder());
-            Assert.AreEqual(StoreElementTexts.currentPH, textBox.GetCurrentAddPlaceholder());
-            Thread.Sleep(3000);
         }
-        
         
         [Test]
         public void CheckInvalidEmail()
         {
             HomePage homePage = new HomePage();
             homePage.NavigateToElementPage();
-            Elements elements = new Elements();
-            elements.NavigateToTextBox();
             TextBox textBox = new TextBox();
+            textBox.NavigateToTextBox();
+            
             textBox.FillForm(TextBox.fullName, TextBox.invalidEmail, TextBox.currentAddress, TextBox.permanentAddress);
             Assert.IsTrue(textBox.errorClass.Displayed);
-            Thread.Sleep(5000);
+        }
+
+        [Test]
+        public void CheckPlaceholders()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            TextBox textBox = new TextBox();
+            textBox.NavigateToTextBox();
+            
+            //Checking placeholders
+            Assert.AreEqual(StoreElementTexts.fNamePH, textBox.GetFNamePlaceholder());
+            Assert.AreEqual(StoreElementTexts.emailPH, textBox.GetEmailPlaceholder());
+            Assert.AreEqual(StoreElementTexts.currentPH, textBox.GetCurrentAddPlaceholder());
         }
     }
 }
