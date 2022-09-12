@@ -20,11 +20,7 @@ namespace DemoqaProject
             webTables.RegistrationForm(WebTables.firstName, WebTables.lastName, WebTables.emailForm, WebTables.age, WebTables.salary, WebTables.department);
             //Checking added user with name Denzel
             Assert.IsTrue(webTables.CheckName(Denzel));
-
-            //Clicking to sorting table
-            webTables.CheckSorting();
-            //Checking page results
-            Assert.AreEqual(WebTables.pageNumber, webTables.totalPages.Text);
+            
             //Search Box test
             webTables.CheckSearch(WebTables.firstName);
         }
@@ -79,6 +75,11 @@ namespace DemoqaProject
             //Clicking to Next and Previous button
             webTables.ClickNext();
             webTables.ClickPrevious();
+            
+            //Clicking to sorting table
+            webTables.CheckSorting();
+            //Checking page results
+            Assert.AreEqual(WebTables.pageNumber, webTables.totalPages.Text);
         }
     }
 }
