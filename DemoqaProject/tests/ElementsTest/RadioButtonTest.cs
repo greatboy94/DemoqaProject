@@ -19,6 +19,7 @@ namespace DemoqaProject
             Assert.That(radioButton.checkState.Text, Does.Contain("Impressive"));
         }
 
+        [Test]
         public void CheckNoButton()
         {
             HomePage homePage = new HomePage();
@@ -26,7 +27,8 @@ namespace DemoqaProject
             RadioButton radioButton = new RadioButton();
             radioButton.NavigateToRadioButton();
             
-            Assert.IsTrue(radioButton.noRadio.Enabled);
+            radioButton.CheckNoRadio();
+            Assert.IsFalse(radioButton.noRadio.Selected);
         }
     }
 }

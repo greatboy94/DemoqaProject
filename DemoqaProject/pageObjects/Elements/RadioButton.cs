@@ -20,6 +20,8 @@ namespace DemoqaProject.PageObjects
         public void CheckYesRadio()=>yesRadio.Click();
 
         public void CheckImpressiveRadio()=>impressiveRadio.Click();
+
+        public void CheckNoRadio() => noRadio.Click();
     }
 }
 
