@@ -27,8 +27,7 @@ namespace DemoqaProject
             RadioButton radioButton = new RadioButton();
             radioButton.NavigateToRadioButton();
             
-            radioButton.CheckNoRadio();
-            Assert.IsFalse(radioButton.noRadio.Selected);
+            Assert.IsFalse(radioButton.noRadio.Enabled);
         }
     }
 }

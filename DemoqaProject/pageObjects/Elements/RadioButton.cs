@@ -11,17 +11,15 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.XPath, Using = "//label[@for='impressiveRadio']")]
         public IWebElement impressiveRadio;
         
-        [FindsBy(How = How.XPath, Using = "//label[@for='noRadio']")]
+        [FindsBy(How = How.XPath, Using = "//input[@id='noRadio']")]
         public IWebElement noRadio;
-        
+
         [FindsBy(How = How.ClassName, Using = "mt-3")]
         public IWebElement checkState;
         
         public void CheckYesRadio()=>yesRadio.Click();
 
         public void CheckImpressiveRadio()=>impressiveRadio.Click();
-
-        public void CheckNoRadio() => noRadio.Click();
     }
 }
 
