@@ -1,5 +1,6 @@
 using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
@@ -57,7 +58,7 @@ namespace DemoqaProject.PageObjects
         }
         public Book NavigateToBookPage()
         {
-            JSExecuter();
+            JSExecuter(bookButton);
             bookButton.Click();
             return new Book();
         }

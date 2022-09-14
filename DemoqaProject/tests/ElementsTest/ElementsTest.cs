@@ -1,13 +1,11 @@
-﻿using System;
-using DemoqaProject.PageObjects;
+﻿using DemoqaProject.PageObjects;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace DemoqaProject
 {
     public class ElementsTest : BaseSeleniumTest
     {
-       
+        
         [Test]
         public void CheckElementText()
         {
