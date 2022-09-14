@@ -19,6 +19,9 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.XPath, Using = "//span[text()='Web Tables']")]
         public IWebElement webTablesButton;
         
+        [FindsBy(How = How.XPath, Using = "//span[text()='Buttons']")]
+        public IWebElement buttons;
+        
 
         public Elements()
         {
@@ -47,6 +50,12 @@ namespace DemoqaProject.PageObjects
         {
             webTablesButton.Click();
             return new WebTables();
+        }
+
+        public Buttons NavigateToButtons()
+        {
+            buttons.Click();
+            return new Buttons();
         }
     }
 }
