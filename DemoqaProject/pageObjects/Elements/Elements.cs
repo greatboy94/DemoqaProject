@@ -22,6 +22,9 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.XPath, Using = "//span[text()='Buttons']")]
         public IWebElement buttons;
         
+        [FindsBy(How = How.XPath, Using = "//span[text()='Links']")]
+        public IWebElement links;
+
 
         public Elements()
         {
@@ -56,6 +59,12 @@ namespace DemoqaProject.PageObjects
         {
             buttons.Click();
             return new Buttons();
+        }
+
+        public Links NavigateToLinks()
+        {
+            links.Click();
+            return new Links();
         }
     }
 }
