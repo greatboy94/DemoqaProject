@@ -13,10 +13,19 @@ namespace DemoqaProject
             BrokenLinks brokenLinks = new BrokenLinks();
             brokenLinks.NavigateToBrokenLinks();
             
-            
             brokenLinks.ValidImage();
             Assert.IsTrue(brokenLinks.validImage.Displayed);
-            Thread.Sleep(5000);
+        }
+        
+        [Test]
+        public void CheckValidAndInvalidLinks()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            BrokenLinks brokenLinks = new BrokenLinks();
+            brokenLinks.NavigateToBrokenLinks();
+            
+            brokenLinks.ValidAndInvalidLinks();
         }
     }
 }
