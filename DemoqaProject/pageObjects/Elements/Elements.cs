@@ -30,6 +30,9 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//span[text()='Upload and Download']")]
         public IWebElement uploadAndDownload;
+        
+        [FindsBy(How = How.XPath, Using = "//span[text()='Dynamic Properties']")]
+        public IWebElement dynamicProperties;
 
 
         public Elements()
@@ -84,6 +87,13 @@ namespace DemoqaProject.PageObjects
             JSExecuter(uploadAndDownload);
             uploadAndDownload.Click();
             return new UploadAndDownload();
+        }
+        
+        public DynamicProperties NavigateToDynamicProperties()
+        {
+            JSExecuter(dynamicProperties);
+            dynamicProperties.Click();
+            return new DynamicProperties();
         }
     }
 }
