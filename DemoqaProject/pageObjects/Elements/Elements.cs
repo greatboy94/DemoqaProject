@@ -27,6 +27,9 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//span[text()='Broken Links - Images']")]
         public IWebElement brokenLinks;
+        
+        [FindsBy(How = How.XPath, Using = "//span[text()='Upload and Download']")]
+        public IWebElement uploadAndDownload;
 
 
         public Elements()
@@ -74,6 +77,13 @@ namespace DemoqaProject.PageObjects
         {
             brokenLinks.Click();
             return new BrokenLinks();
+        }
+        
+        public UploadAndDownload NavigateToUploadAndDownload()
+        {
+            JSExecuter(uploadAndDownload);
+            uploadAndDownload.Click();
+            return new UploadAndDownload();
         }
     }
 }
