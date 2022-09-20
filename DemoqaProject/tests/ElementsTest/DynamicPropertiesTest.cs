@@ -16,6 +16,19 @@ namespace DemoqaProject
             dynamicProperties.EnableButton();
             Assert.IsTrue(dynamicProperties.enableButton.Enabled);
         }
+
+        [Test]
+        public void CheckRandomID()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            DynamicProperties dynamicProperties = new DynamicProperties();
+            dynamicProperties.NavigateToDynamicProperties();
+            
+            dynamicProperties.RandomID();
+            //No idea how to check, because id is random
+            //Assert.IsTrue(dynamicProperties.RandomID()==dynamicProperties.randomIDButton.GetAttribute("id"));
+        }
     }
 }
 
