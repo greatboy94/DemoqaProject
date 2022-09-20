@@ -29,6 +29,32 @@ namespace DemoqaProject
             //No idea how to check, because id is random
             //Assert.IsTrue(dynamicProperties.RandomID()==dynamicProperties.randomIDButton.GetAttribute("id"));
         }
+
+        [Test]
+        public void CheckColorChangeButton()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            DynamicProperties dynamicProperties = new DynamicProperties();
+            dynamicProperties.NavigateToDynamicProperties();
+            
+            //Could not find any other solution
+            Thread.Sleep(6000);
+            Assert.IsTrue(dynamicProperties.colorChangeButton.Displayed);
+        }
+        
+        [Test]
+        public void CheckVisibleAfterButton()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToElementPage();
+            DynamicProperties dynamicProperties = new DynamicProperties();
+            dynamicProperties.NavigateToDynamicProperties();
+            
+            //Could not find any other solution
+            Thread.Sleep(6000);
+            Assert.IsTrue(dynamicProperties.visibleAfterButton.Displayed);
+        }
     }
 }
 

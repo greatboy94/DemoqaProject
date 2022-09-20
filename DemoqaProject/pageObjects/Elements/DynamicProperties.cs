@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
@@ -13,10 +12,17 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.XPath, Using = "//p[text()='This text has random Id']")]
         public IWebElement randomIDButton;
+        
+        [FindsBy(How = How.XPath, Using = "//button[@class='mt-4 text-danger btn btn-primary']")]
+        public IWebElement colorChangeButton;
 
+        [FindsBy(How = How.Id, Using = "visibleAfter")]
+        public IWebElement visibleAfterButton;
+
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        
         public void EnableButton()
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             IWebElement searchResult = wait.Until(ExpectedConditions.ElementToBeClickable(enableButton));
             searchResult.Click();
         }
@@ -24,7 +30,7 @@ namespace DemoqaProject.PageObjects
         public string RandomID()
         {
             string a=randomIDButton.GetAttribute("id");
-            Console.WriteLine("Expected Result: "+a);
+            Console.WriteLine("Expected Result: " + a);
             return a;
         }
     }
