@@ -26,6 +26,7 @@ namespace DemoqaProject
             brokenLinks.NavigateToBrokenLinks();
             
             brokenLinks.ValidAndInvalidLinks();
+            Assert.IsTrue(brokenLinks.brokenLink.Displayed);
         }
     }
 }

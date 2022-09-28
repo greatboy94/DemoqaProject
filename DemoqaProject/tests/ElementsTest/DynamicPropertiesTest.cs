@@ -26,8 +26,7 @@ namespace DemoqaProject
             dynamicProperties.NavigateToDynamicProperties();
             
             dynamicProperties.RandomID();
-            //No idea how to check, because id is random
-            //Assert.IsTrue(dynamicProperties.RandomID()==dynamicProperties.randomIDButton.GetAttribute("id"));
+            Assert.IsTrue(dynamicProperties.RandomID()!=dynamicProperties.randomIDButton.GetAttribute("id"));
         }
 
         [Test]
@@ -38,8 +37,7 @@ namespace DemoqaProject
             DynamicProperties dynamicProperties = new DynamicProperties();
             dynamicProperties.NavigateToDynamicProperties();
             
-            //Could not find any other solution
-            Thread.Sleep(6000);
+            dynamicProperties.ColorButton();
             Assert.IsTrue(dynamicProperties.colorChangeButton.Displayed);
         }
         
@@ -51,8 +49,7 @@ namespace DemoqaProject
             DynamicProperties dynamicProperties = new DynamicProperties();
             dynamicProperties.NavigateToDynamicProperties();
             
-            //Could not find any other solution
-            Thread.Sleep(6000);
+            dynamicProperties.VisibleButton();
             Assert.IsTrue(dynamicProperties.visibleAfterButton.Displayed);
         }
     }

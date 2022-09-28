@@ -23,7 +23,7 @@ namespace DemoqaProject.PageObjects
 
         public void DownloadFile()
         {
-            String myDownloadFolder = @"C:\Users\great\Downloads";
+            string myDownloadFolder = @"C:\Users\great\Downloads";
             var options = new ChromeOptions();
             options.AddUserProfilePreference("download.default_directory", myDownloadFolder);
             downloadButton.Click();

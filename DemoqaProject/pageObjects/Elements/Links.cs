@@ -5,13 +5,6 @@ namespace DemoqaProject.PageObjects
 {
     public class Links : Elements
     {
-        public string createCode = "201";
-        public string noContentCode = "204";
-        public string movedCode = "301";
-        public string badRequestCode = "400";
-        public string unauthorizedCode = "401";
-        public string forbiddenCode = "403";
-        public string notFoundCode = "404";
 
         [FindsBy(How = How.Id, Using = "simpleLink")]
         public IWebElement homeLink;
@@ -46,13 +39,13 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.Id, Using = "invalid-url")]
         public IWebElement notFoundButton;
 
-        public void HomeLink()
+        public void FirstLinkOpenNewTab()
         {
             homeLink.Click();
             driver.SwitchTo().Window(driver.WindowHandles[1]);
         }
         
-        public void Home2Link()
+        public void SecondLinkOpenNewTab()
         {
             home2Link.Click();
             driver.SwitchTo().Window(driver.WindowHandles[1]);

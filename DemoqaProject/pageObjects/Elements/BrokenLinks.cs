@@ -14,6 +14,9 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.TagName, Using = "img")]
         public IList<IWebElement> imageList;
+
+        [FindsBy(How = How.XPath, Using = "//a[@href='http://the-internet.herokuapp.com/status_codes/500']")]
+        public IWebElement brokenLink;
         
         public async Task ValidImage()
         {

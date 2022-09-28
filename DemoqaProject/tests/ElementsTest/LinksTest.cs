@@ -13,7 +13,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.HomeLink();
+            links.FirstLinkOpenNewTab();
             Assert.IsTrue(links.bannerImage.Displayed);
         }
 
@@ -25,7 +25,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.Home2Link();
+            links.SecondLinkOpenNewTab();
             Assert.IsTrue(links.bannerImage.Displayed);
         }
         
@@ -38,8 +38,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.Created();
-            Assert.That(links.responseLink.Text, Does.Contain(links.createCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("201"));
         }
         
         [Test]
@@ -51,8 +50,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.NoContent();
-            Assert.That(links.responseLink.Text, Does.Contain(links.noContentCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("204"));
         }
         
         [Test]
@@ -64,8 +62,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.Moved();
-            Assert.That(links.responseLink.Text, Does.Contain(links.movedCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("301"));
         }
         
         [Test]
@@ -77,8 +74,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.BadRequest();
-            Assert.That(links.responseLink.Text, Does.Contain(links.badRequestCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("400"));
         }
         
         [Test]
@@ -90,8 +86,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.Unauthorized();
-            Assert.That(links.responseLink.Text, Does.Contain(links.unauthorizedCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("401"));
         }
         
         [Test]
@@ -103,8 +98,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.Forbidden();
-            Assert.That(links.responseLink.Text, Does.Contain(links.forbiddenCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("403"));
         }
         
         [Test]
@@ -116,8 +110,7 @@ namespace DemoqaProject
             links.NavigateToLinks();
             
             links.NotFound();
-            Assert.That(links.responseLink.Text, Does.Contain(links.notFoundCode));
-            Thread.Sleep(5000);
+            Assert.That(links.responseLink.Text, Does.Contain("404"));
         }
     }
 }

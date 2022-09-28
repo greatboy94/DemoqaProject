@@ -1,7 +1,5 @@
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
-using SeleniumExtras.WaitHelpers;
 
 namespace DemoqaProject.PageObjects
 {
@@ -18,20 +16,32 @@ namespace DemoqaProject.PageObjects
 
         [FindsBy(How = How.Id, Using = "visibleAfter")]
         public IWebElement visibleAfterButton;
-
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        
         
         public void EnableButton()
         {
-            IWebElement searchResult = wait.Until(ExpectedConditions.ElementToBeClickable(enableButton));
-            searchResult.Click();
+            WaitElement(enableButton);
+            enableButton.Click();
         }
 
         public string RandomID()
         {
             string a=randomIDButton.GetAttribute("id");
             Console.WriteLine("Expected Result: " + a);
+            driver.Navigate().Refresh();
             return a;
+        }
+
+        public void ColorButton()
+        {
+            WaitElement(colorChangeButton);
+            colorChangeButton.Click();
+        }
+
+        public void VisibleButton()
+        {
+            WaitElement(visibleAfterButton);
+            visibleAfterButton.Click();
         }
     }
 }

@@ -1,5 +1,7 @@
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
+using SeleniumExtras.WaitHelpers;
 
 namespace DemoqaProject
 {
@@ -24,6 +26,11 @@ namespace DemoqaProject
         public string GetHeaderText()
         {
             return HeaderText.Text;
+        }
+
+        public void WaitElement(IWebElement xPath)
+        {
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementToBeClickable(xPath));
         }
     }    
 }
