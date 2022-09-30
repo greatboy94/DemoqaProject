@@ -44,6 +44,11 @@ namespace DemoqaProject.PageObjects
         {
             ClickMeButton.Click();
         }
+
+        public void WaitLoadPage()
+        {
+            Task.Delay(TimeSpan.FromSeconds(3)).Wait();
+        }
     }    
 }
 

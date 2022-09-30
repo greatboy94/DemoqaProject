@@ -51,37 +51,37 @@ namespace DemoqaProject.PageObjects
             driver.SwitchTo().Window(driver.WindowHandles[1]);
         }
         
-        public void Created()
+        public void ClickCreatedButton()
         {
             createdButton.Click();
         }
 
-        public void NoContent()
+        public void ClickNoContentButton()
         {
             noContentButton.Click();
         }
         
-        public void Moved()
+        public void ClickMovedButton()
         {
             movedButton.Click();
         }
-        
-        public void BadRequest()
+
+        public void ClickBadRequestButton()
         {
             badRequestButton.Click();
         }
         
-        public void Unauthorized()
+        public void ClickUnauthorizedButton()
         {
             unauthorizedButton.Click();
         }
         
-        public void Forbidden()
+        public void ClickForbiddenButton()
         {
             forbiddenButton.Click();
         }
         
-        public void NotFound()
+        public void ClickNotFoundButton()
         {
             notFoundButton.Click();
         }

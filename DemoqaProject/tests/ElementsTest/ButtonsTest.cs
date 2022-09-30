@@ -13,7 +13,7 @@ namespace DemoqaProject
             Buttons buttons = new Buttons();
             buttons.NavigateToButtons();
             
-            Thread.Sleep(2000);
+            buttons.WaitLoadPage();
             buttons.PerformDoubleClick();
             Assert.AreEqual(buttons.expectedDoubleClick, buttons.doubleClickText.Text);
         }
@@ -26,7 +26,7 @@ namespace DemoqaProject
             Buttons buttons = new Buttons();
             buttons.NavigateToButtons();
 
-            Thread.Sleep(2000);
+            buttons.WaitLoadPage();
             buttons.PerformRightClick();
             Assert.AreEqual(buttons.expectedRightClick, buttons.rightClickText.Text);
         }
@@ -39,7 +39,7 @@ namespace DemoqaProject
             Buttons buttons = new Buttons();
             buttons.NavigateToButtons();
 
-            Thread.Sleep(2000);
+            buttons.WaitLoadPage();
             buttons.PerformClick();
             Assert.AreEqual(buttons.expectedClick, buttons.ClickMeText.Text);
         }

@@ -37,7 +37,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.Created();
+            links.ClickCreatedButton();
             Assert.That(links.responseLink.Text, Does.Contain("201"));
         }
         
@@ -49,7 +49,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.NoContent();
+            links.ClickNoContentButton();
             Assert.That(links.responseLink.Text, Does.Contain("204"));
         }
         
@@ -61,7 +61,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.Moved();
+            links.ClickMovedButton();
             Assert.That(links.responseLink.Text, Does.Contain("301"));
         }
         
@@ -73,7 +73,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.BadRequest();
+            links.ClickBadRequestButton();
             Assert.That(links.responseLink.Text, Does.Contain("400"));
         }
         
@@ -85,7 +85,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.Unauthorized();
+            links.ClickUnauthorizedButton();
             Assert.That(links.responseLink.Text, Does.Contain("401"));
         }
         
@@ -97,7 +97,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.Forbidden();
+            links.ClickForbiddenButton();
             Assert.That(links.responseLink.Text, Does.Contain("403"));
         }
         
@@ -109,7 +109,7 @@ namespace DemoqaProject
             Links links = new Links();
             links.NavigateToLinks();
             
-            links.NotFound();
+            links.ClickNotFoundButton();
             Assert.That(links.responseLink.Text, Does.Contain("404"));
         }
     }
