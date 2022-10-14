@@ -1,8 +1,6 @@
-using System.Reflection;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using SeleniumExtras.PageObjects;
-using System.IO;
+
 
 namespace DemoqaProject.PageObjects
 {
@@ -18,18 +16,15 @@ namespace DemoqaProject.PageObjects
         
         [FindsBy(How = How.Id, Using = "uploadedFilePath")]
         public IWebElement uploadedFilePath;
-
-        //public string downloadURL = "C:\\Users\\great\\Downloads\\sampleFile.jpeg";
-        public static string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
-        public string uploadURL = string.Format("{0}files\\sampleFile.jpeg", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\..\")));
+        
+        private static string? RunningPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString())?.ToString();
+        public string uploadURL = Path.GetFullPath(Path.Combine(RunningPath ?? string.Empty, $"files{Path.DirectorySeparatorChar}sampleFile.jpeg"));
+        
 
         public void DownloadFile()
         {
-            string myDownloadFolder = "C:\\Users\\great\\RiderProjects\\DemoqaProject\\DemoqaProject\\files";
-            var options = new ChromeOptions();
-            options.AddUserProfilePreference("download.default_directory", myDownloadFolder);
-            driver = new ChromeDriver();
             downloadButton.Click();
+            WaitInterval(downloadButton);
         }
 
         public void UploadFile()

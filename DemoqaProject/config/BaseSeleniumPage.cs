@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
+using System.Threading.Tasks;
 
 namespace DemoqaProject
 {
@@ -31,6 +32,11 @@ namespace DemoqaProject
         public void WaitElement(IWebElement xPath)
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementToBeClickable(xPath));
+        }
+
+        public void WaitInterval(IWebElement xPath)
+        {
+            Task.Delay(TimeSpan.FromSeconds(3)).Wait();
         }
     }    
 }
