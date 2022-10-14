@@ -1,6 +1,4 @@
-using System;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using SeleniumExtras.PageObjects;
 
 namespace DemoqaProject.PageObjects
