@@ -8,6 +8,8 @@ namespace DemoqaProject.PageObjects
     {
         private string YEAR = "1994";
         private string MONTH = "July";
+        private static string? RunningPath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString())?.ToString();
+        public string uploadURL = Path.GetFullPath(Path.Combine(RunningPath ?? string.Empty, $"files{Path.DirectorySeparatorChar}sampleFile.jpeg"));
 
         [FindsBy(How = How.Id, Using = "firstName")]
         public IWebElement firstName;
@@ -33,6 +35,15 @@ namespace DemoqaProject.PageObjects
         [FindsBy(How = How.XPath, Using = "//div[@class='react-datepicker__day react-datepicker__day--024 react-datepicker__day--weekend']")]
         public IWebElement pickDate;
 
+        [FindsBy(How = How.Id, Using = "subjectsContainer")]
+        public IWebElement subject;
+
+        [FindsBy(How = How.XPath, Using = "//div[@class='custom-control custom-checkbox custom-control-inline']")]
+        public IList<IWebElement> hobbies;
+
+        [FindsBy(How = How.Id, Using = "uploadPicture")]
+        public IWebElement uploadPhoto;
+
 
         public void FillFormWithValidCredentials()
         {
@@ -47,7 +58,15 @@ namespace DemoqaProject.PageObjects
             month.SelectByText(MONTH);
             WaitElement(pickDate);
             pickDate.Click();
-
+            JSExecuter(subject);
+            subject.SendKeys("Math");
+            foreach (var el in hobbies)
+            {
+                JSExecuter(el);
+                el.Click();
+            }
+            JSExecuter(uploadPhoto);
+            uploadPhoto.SendKeys(uploadURL);
         }
     }   
 }
