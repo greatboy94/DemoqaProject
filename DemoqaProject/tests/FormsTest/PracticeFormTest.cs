@@ -14,6 +14,8 @@ namespace DemoqaProject
         private string state = "ncr";
         private string city = "Delhi";
         
+        private string usernumber2 = "";
+        
         [Test]
         public void ValidCredentialTest()
         {
@@ -24,7 +26,20 @@ namespace DemoqaProject
             practiceForm.FillFormWithValidCredentials(firstname, lastname, useremail, usernumber, subject, address, state, city);
             
             Thread.Sleep(2000);
-            Assert.IsTrue(practiceForm.tableName.Displayed);
+            Assert.IsTrue(practiceForm.CheckClassExists());
+        }
+        
+        [Test]
+        public void InValidCredentialTest()
+        {
+            HomePage homePage = new HomePage();
+            homePage.NavigateToFormsPage();
+            PracticeForm practiceForm = new PracticeForm();
+            practiceForm.NavigateToPracticeForm();
+            practiceForm.FillFormWithInValidCredentials(firstname, lastname, useremail, usernumber2, subject, address, state, city);
+            
+            Thread.Sleep(2000);
+            Assert.IsFalse(practiceForm.CheckClassExists());
         }
     }   
 }

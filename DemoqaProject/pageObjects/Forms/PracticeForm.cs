@@ -60,7 +60,7 @@ namespace DemoqaProject.PageObjects
         public IWebElement submit;
 
         [FindsBy(How = How.ClassName, Using = "modal-content")]
-        public IWebElement tableName;
+        public IList<IWebElement> tableName;
 
 
         public void FillFormWithValidCredentials(string firstname, string lastname, string useremail, string usernumber, string subj, string address, string state1, string city1)
@@ -94,6 +94,52 @@ namespace DemoqaProject.PageObjects
             city.SendKeys(city1);
             city.SendKeys(Keys.Enter);
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", submit);
+        }
+        
+        public void FillFormWithInValidCredentials(string firstname, string lastname, string useremail, string usernumber, string subj, string address, string state1, string city1)
+        {
+            firstName.SendKeys(firstname);
+            lastName.SendKeys(lastname);
+            userEmail.SendKeys(useremail);
+            male.Click();
+            userNumber.SendKeys(usernumber);
+            dateOfBirth.Click();
+            SelectElement year = new SelectElement(pickYear);
+            year.SelectByText(YEAR);
+            SelectElement month = new SelectElement(pickMonth);
+            month.SelectByText(MONTH);
+            WaitElement(pickDate);
+            JSExecuter(pickDate);
+            pickDate.Click();
+            JSExecuter(subject);
+            subject.SendKeys(subj);
+            subject.SendKeys(Keys.Enter);
+            foreach (var el in hobbies)
+            {
+                JSExecuter(el);
+                el.Click();
+            }
+            JSExecuter(uploadPhoto);
+            uploadPhoto.SendKeys(uploadURL);
+            currentAddress.SendKeys(address);
+            state.SendKeys(state1);
+            state.SendKeys(Keys.Enter);
+            city.SendKeys(city1);
+            city.SendKeys(Keys.Enter);
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", submit);
+        }
+
+        public bool CheckClassExists()
+        {
+            int elementsCount = tableName.Count();
+            if (elementsCount<1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }   
 }
