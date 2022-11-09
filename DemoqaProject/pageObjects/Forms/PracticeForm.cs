@@ -61,15 +61,31 @@ namespace DemoqaProject.PageObjects
 
         [FindsBy(How = How.ClassName, Using = "modal-content")]
         public IList<IWebElement> tableName;
+        
 
-
-        public void FillFormWithValidCredentials(string firstname, string lastname, string useremail, string usernumber, string subj, string address, string state1, string city1)
+        public void FillFullname(string firstname, string lastname)
         {
             firstName.SendKeys(firstname);
             lastName.SendKeys(lastname);
-            userEmail.SendKeys(useremail);
+        }
+
+        public void FillEmail(string email)
+        {
+            userEmail.SendKeys(email);
+        }
+
+        public void ChooseGender()
+        {
             male.Click();
-            userNumber.SendKeys(usernumber);
+        }
+
+        public void FillUserNumber(string number)
+        {
+            userNumber.SendKeys(number);
+        }
+
+        public void PickDateOfBirth()
+        {
             dateOfBirth.Click();
             SelectElement year = new SelectElement(pickYear);
             year.SelectByText(YEAR);
@@ -78,55 +94,56 @@ namespace DemoqaProject.PageObjects
             WaitElement(pickDate);
             JSExecuter(pickDate);
             pickDate.Click();
+        }
+
+        public void FillSubject(string subj)
+        {
             JSExecuter(subject);
             subject.SendKeys(subj);
             subject.SendKeys(Keys.Enter);
+        }
+
+        public void PickHobbies()
+        {
             foreach (var el in hobbies)
             {
                 JSExecuter(el);
                 el.Click();
             }
+        }
+
+        public void UploadPhoto()
+        {
             JSExecuter(uploadPhoto);
             uploadPhoto.SendKeys(uploadURL);
+        }
+
+        public void CurrentAddress(string address)
+        {
             currentAddress.SendKeys(address);
+        }
+
+        public void PickLocation(string state1, string city1)
+        {
             state.SendKeys(state1);
             state.SendKeys(Keys.Enter);
             city.SendKeys(city1);
             city.SendKeys(Keys.Enter);
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", submit);
         }
-        
-        public void FillFormWithInValidCredentials(string firstname, string lastname, string useremail, string usernumber, string subj, string address, string state1, string city1)
+
+        public void FillRegistrationForm(string firstname, string lastname, string email, string number, string subj, string address, string state1, string city1)
         {
-            firstName.SendKeys(firstname);
-            lastName.SendKeys(lastname);
-            userEmail.SendKeys(useremail);
-            male.Click();
-            userNumber.SendKeys(usernumber);
-            dateOfBirth.Click();
-            SelectElement year = new SelectElement(pickYear);
-            year.SelectByText(YEAR);
-            SelectElement month = new SelectElement(pickMonth);
-            month.SelectByText(MONTH);
-            WaitElement(pickDate);
-            JSExecuter(pickDate);
-            pickDate.Click();
-            JSExecuter(subject);
-            subject.SendKeys(subj);
-            subject.SendKeys(Keys.Enter);
-            foreach (var el in hobbies)
-            {
-                JSExecuter(el);
-                el.Click();
-            }
-            JSExecuter(uploadPhoto);
-            uploadPhoto.SendKeys(uploadURL);
-            currentAddress.SendKeys(address);
-            state.SendKeys(state1);
-            state.SendKeys(Keys.Enter);
-            city.SendKeys(city1);
-            city.SendKeys(Keys.Enter);
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", submit);
+            FillFullname(firstname, lastname);
+            FillEmail(email);
+            ChooseGender();
+            FillUserNumber(number);
+            PickDateOfBirth();
+            FillSubject(subj);
+            PickHobbies();
+            UploadPhoto();
+            CurrentAddress(address);
+            PickLocation(state1, city1);
         }
 
         public bool CheckClassExists()

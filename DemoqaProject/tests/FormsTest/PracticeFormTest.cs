@@ -23,9 +23,8 @@ namespace DemoqaProject
             homePage.NavigateToFormsPage();
             PracticeForm practiceForm = new PracticeForm();
             practiceForm.NavigateToPracticeForm();
-            practiceForm.FillFormWithValidCredentials(firstname, lastname, useremail, usernumber, subject, address, state, city);
+            practiceForm.FillRegistrationForm(firstname, lastname, useremail, usernumber, subject, address, state, city);
             
-            Thread.Sleep(2000);
             Assert.IsTrue(practiceForm.CheckClassExists());
         }
         
@@ -36,9 +35,8 @@ namespace DemoqaProject
             homePage.NavigateToFormsPage();
             PracticeForm practiceForm = new PracticeForm();
             practiceForm.NavigateToPracticeForm();
-            practiceForm.FillFormWithInValidCredentials(firstname, lastname, useremail, usernumber2, subject, address, state, city);
+            practiceForm.FillRegistrationForm(firstname, lastname, useremail, usernumber2, subject, address, state, city);
             
-            Thread.Sleep(2000);
             Assert.IsFalse(practiceForm.CheckClassExists());
         }
     }   
