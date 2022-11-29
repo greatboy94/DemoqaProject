@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 

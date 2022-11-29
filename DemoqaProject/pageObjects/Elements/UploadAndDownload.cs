@@ -24,7 +24,7 @@ namespace DemoqaProject.PageObjects
         public void DownloadFile()
         {
             downloadButton.Click();
-            WaitInterval(downloadButton);
+            WaitInterval();
         }
 
         public void UploadFile()

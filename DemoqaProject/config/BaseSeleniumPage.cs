@@ -34,7 +34,7 @@ namespace DemoqaProject
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementToBeClickable(xPath));
         }
 
-        public void WaitInterval(IWebElement xPath)
+        public void WaitInterval()
         {
             Task.Delay(TimeSpan.FromSeconds(3)).Wait();
         }
