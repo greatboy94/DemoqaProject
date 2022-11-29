@@ -5,39 +5,25 @@ namespace DemoqaProject
 {
     public class PracticeFormTest : BaseSeleniumTest
     {
-        private string firstname = "Andrew";
-        private string lastname = "Garfield";
-        private string useremail = "Andrew@gmail.com";
-        private string usernumber = "9987773333";
-        private string subject = "Computer";
-        private string address = "Chicago, USA";
-        private string state = "ncr";
-        private string city = "Delhi";
-        
-        private string usernumber2 = "";
-        
-        [Test]
-        public void ValidCredentialTest()
+
+        [TestCase("Andrew", "Garfield", "Andrew@gmail.com", "9987773333", "Computer", "Chicago, USA", "ncr", "Delhi", true)]
+        [TestCase("Andrew", "Garfield", "Andrew@gmail.com", "", "Computer", "Chicago, USA", "ncr", "Delhi", false)]
+        public void ValidCredentialTest(string firstname, string lastname, string useremail, string usernumber, string subject, string address, string state, string city, bool testCaseOrder)
         {
             HomePage homePage = new HomePage();
             homePage.NavigateToFormsPage();
             PracticeForm practiceForm = new PracticeForm();
             practiceForm.NavigateToPracticeForm();
             practiceForm.FillRegistrationForm(firstname, lastname, useremail, usernumber, subject, address, state, city);
-            
-            Assert.IsTrue(practiceForm.CheckClassExists());
-        }
-        
-        [Test]
-        public void InValidCredentialTest()
-        {
-            HomePage homePage = new HomePage();
-            homePage.NavigateToFormsPage();
-            PracticeForm practiceForm = new PracticeForm();
-            practiceForm.NavigateToPracticeForm();
-            practiceForm.FillRegistrationForm(firstname, lastname, useremail, usernumber2, subject, address, state, city);
-            
-            Assert.IsFalse(practiceForm.CheckClassExists());
+
+            if (testCaseOrder)
+            {
+                Assert.IsTrue(practiceForm.CheckClassExists());
+            }
+            else
+            {
+                Assert.IsFalse(practiceForm.CheckClassExists());   
+            }
         }
     }   
 }

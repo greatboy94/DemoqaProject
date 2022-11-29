@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
@@ -131,7 +132,7 @@ namespace DemoqaProject.PageObjects
             city.SendKeys(Keys.Enter);
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click();", submit);
         }
-
+        
         public void FillRegistrationForm(string firstname, string lastname, string email, string number, string subj, string address, string state1, string city1)
         {
             FillFullname(firstname, lastname);
@@ -149,14 +150,7 @@ namespace DemoqaProject.PageObjects
         public bool CheckClassExists()
         {
             int elementsCount = tableName.Count();
-            if (elementsCount<1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return elementsCount >= 1;
         }
     }   
 }
