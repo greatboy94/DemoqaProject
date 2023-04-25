@@ -85,6 +85,10 @@ namespace DemoqaProject.PageObjects
         {
             notFoundButton.Click();
         }
+
+        public Links(IWebDriver driver) : base(driver)
+        {
+        }
     }    
 }
 

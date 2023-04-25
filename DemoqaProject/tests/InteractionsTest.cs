@@ -8,7 +8,7 @@ namespace DemoqaProject
         [Test]
         public void CheckInteractionsText()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToInteractionsPage();
             Interactions interactions = new Interactions();
             Assert.AreEqual(StoreElementTexts.interactionText, interactions.GetHeaderText());

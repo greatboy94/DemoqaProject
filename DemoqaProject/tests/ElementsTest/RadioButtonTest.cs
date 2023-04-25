@@ -8,9 +8,9 @@ namespace DemoqaProject
         [Test]
         public void ClickAndCheck()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            RadioButton radioButton = new RadioButton();
+            RadioButton radioButton = new RadioButton(driver);
             radioButton.NavigateToRadioButton();
             
             radioButton.CheckYesRadio();
@@ -22,9 +22,9 @@ namespace DemoqaProject
         [Test]
         public void CheckNoButton()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            RadioButton radioButton = new RadioButton();
+            RadioButton radioButton = new RadioButton(driver);
             radioButton.NavigateToRadioButton();
             
             Assert.IsFalse(radioButton.noRadio.Enabled);

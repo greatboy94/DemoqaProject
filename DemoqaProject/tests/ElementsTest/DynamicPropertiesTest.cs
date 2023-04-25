@@ -8,9 +8,9 @@ namespace DemoqaProject
         [Test]
         public void CheckEnabledButton()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            DynamicProperties dynamicProperties = new DynamicProperties();
+            DynamicProperties dynamicProperties = new DynamicProperties(driver);
             dynamicProperties.NavigateToDynamicProperties();
             
             dynamicProperties.EnableButton();
@@ -20,9 +20,9 @@ namespace DemoqaProject
         [Test]
         public void CheckRandomID()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            DynamicProperties dynamicProperties = new DynamicProperties();
+            DynamicProperties dynamicProperties = new DynamicProperties(driver);
             dynamicProperties.NavigateToDynamicProperties();
             
             dynamicProperties.RandomID();
@@ -32,9 +32,9 @@ namespace DemoqaProject
         [Test]
         public void CheckColorChangeButton()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            DynamicProperties dynamicProperties = new DynamicProperties();
+            DynamicProperties dynamicProperties = new DynamicProperties(driver);
             dynamicProperties.NavigateToDynamicProperties();
             
             dynamicProperties.ColorButton();
@@ -44,9 +44,9 @@ namespace DemoqaProject
         [Test]
         public void CheckVisibleAfterButton()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            DynamicProperties dynamicProperties = new DynamicProperties();
+            DynamicProperties dynamicProperties = new DynamicProperties(driver);
             dynamicProperties.NavigateToDynamicProperties();
             
             dynamicProperties.VisibleButton();

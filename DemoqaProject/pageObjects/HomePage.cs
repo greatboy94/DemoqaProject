@@ -5,7 +5,7 @@ namespace DemoqaProject.PageObjects
 {
     public class HomePage : BaseSeleniumPage
     {
-        public HomePage()
+        public HomePage(IWebDriver driver)
         {
             driver.Navigate().GoToUrl(Config.baseURL);
             PageFactory.InitElements(driver, this);
@@ -32,7 +32,7 @@ namespace DemoqaProject.PageObjects
         public Elements NavigateToElementPage()
         {
             elementButton.Click();
-            return new Elements();
+            return new Elements(driver);
         }
         public Forms NavigateToFormsPage()
         {

@@ -73,6 +73,10 @@ namespace DemoqaProject.PageObjects
         public string GetEmailPlaceholder()=>emailInput.GetAttribute("placeholder");
 
         public string GetCurrentAddPlaceholder()=>currentAddressInput.GetAttribute("placeholder");
+
+        public TextBox(IWebDriver driver) : base(driver)
+        {
+        }
     }    
 }
 

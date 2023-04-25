@@ -31,5 +31,9 @@ namespace DemoqaProject.PageObjects
         {
             uploadButton.SendKeys(uploadURL);
         }
+
+        public UploadAndDownload(IWebDriver driver) : base(driver)
+        {
+        }
     }
 }

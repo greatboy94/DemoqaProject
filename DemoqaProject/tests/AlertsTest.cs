@@ -8,7 +8,7 @@ namespace DemoqaProject
         [Test]
         public void CheckAlertsText()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToAlertsPage();
             Alerts alerts = new Alerts();
             Assert.AreEqual(StoreElementTexts.alertsText, alerts.GetHeaderText());

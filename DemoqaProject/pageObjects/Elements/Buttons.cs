@@ -49,6 +49,10 @@ namespace DemoqaProject.PageObjects
         {
             Task.Delay(TimeSpan.FromSeconds(3)).Wait();
         }
+
+        public Buttons(IWebDriver driver) : base(driver)
+        {
+        }
     }    
 }
 

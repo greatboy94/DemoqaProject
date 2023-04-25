@@ -1,16 +1,17 @@
 using DemoqaProject.PageObjects;
 using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace DemoqaProject
 {
     public class ButtonsTest : BaseSeleniumTest
     {
         [Test]
-        public void CheckDoubleClick()
+        public void CheckDoubleClick(IWebDriver driver)
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Buttons buttons = new Buttons();
+            Buttons buttons = new Buttons(driver);
             buttons.NavigateToButtons();
             
             buttons.WaitLoadPage();
@@ -19,11 +20,11 @@ namespace DemoqaProject
         }
         
         [Test]
-        public void CheckRightClick()
+        public void CheckRightClick(IWebDriver driver)
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Buttons buttons = new Buttons();
+            Buttons buttons = new Buttons(driver);
             buttons.NavigateToButtons();
 
             buttons.WaitLoadPage();
@@ -32,11 +33,11 @@ namespace DemoqaProject
         }
         
         [Test]
-        public void CheckClick()
+        public void CheckClick(IWebDriver driver)
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Buttons buttons = new Buttons();
+            Buttons buttons = new Buttons(driver);
             buttons.NavigateToButtons();
 
             buttons.WaitLoadPage();

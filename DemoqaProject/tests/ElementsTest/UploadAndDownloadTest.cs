@@ -8,9 +8,9 @@ namespace DemoqaProject
         [Test]
         public void CheckDownload()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            UploadAndDownload uploadAndDownload = new UploadAndDownload();
+            UploadAndDownload uploadAndDownload = new UploadAndDownload(driver);
             uploadAndDownload.NavigateToUploadAndDownload();
             
             uploadAndDownload.DownloadFile();
@@ -20,9 +20,9 @@ namespace DemoqaProject
         [Test]
         public void CheckUpload()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            UploadAndDownload uploadAndDownload = new UploadAndDownload();
+            UploadAndDownload uploadAndDownload = new UploadAndDownload(driver);
             uploadAndDownload.NavigateToUploadAndDownload();
             
             uploadAndDownload.UploadFile();

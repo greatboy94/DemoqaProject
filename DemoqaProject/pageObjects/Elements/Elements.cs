@@ -34,65 +34,65 @@ namespace DemoqaProject.PageObjects
         public IWebElement dynamicProperties;
 
 
-        public Elements()
+        public Elements(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
         }
-        
+
         public TextBox NavigateToTextBox()
         {
             textBoxButton.Click();
-            return new TextBox();
+            return new TextBox(driver);
         }
 
         public CheckBox NavigateToCheckBox()
         {
             checkBoxButton.Click();
-            return new CheckBox();
+            return new CheckBox(driver);
         }
 
         public RadioButton NavigateToRadioButton()
         {
             radioButton.Click();
-            return new RadioButton();
+            return new RadioButton(driver);
         }
 
         public WebTables NavigateToWebTables()
         {
             webTablesButton.Click();
-            return new WebTables();
+            return new WebTables(driver);
         }
 
         public Buttons NavigateToButtons()
         {
             buttons.Click();
-            return new Buttons();
+            return new Buttons(driver);
         }
 
         public Links NavigateToLinks()
         {
             links.Click();
-            return new Links();
+            return new Links(driver);
         }
         
         public BrokenLinks NavigateToBrokenLinks()
         {
             brokenLinks.Click();
-            return new BrokenLinks();
+            return new BrokenLinks(driver);
         }
         
         public UploadAndDownload NavigateToUploadAndDownload()
         {
             JSExecuter(uploadAndDownload);
             uploadAndDownload.Click();
-            return new UploadAndDownload();
+            return new UploadAndDownload(driver);
         }
         
         public DynamicProperties NavigateToDynamicProperties()
         {
             JSExecuter(dynamicProperties);
             dynamicProperties.Click();
-            return new DynamicProperties();
+            return new DynamicProperties(driver);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace DemoqaProject
         [Test]
         public void CheckFormText()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToFormsPage();
             Forms forms = new Forms();
             Assert.AreEqual(StoreElementTexts.formsText, forms.GetHeaderText());

@@ -43,5 +43,9 @@ namespace DemoqaProject.PageObjects
             WaitElement(visibleAfterButton);
             visibleAfterButton.Click();
         }
+
+        public DynamicProperties(IWebDriver driver) : base(driver)
+        {
+        }
     }
 }

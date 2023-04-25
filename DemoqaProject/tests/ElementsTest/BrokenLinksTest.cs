@@ -1,16 +1,18 @@
 using DemoqaProject.PageObjects;
 using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace DemoqaProject
 {
     public class BrokenLinksTest : BaseSeleniumTest
     {
+        [Parallelizable]
         [Test]
         public void CheckBrokenImages()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            BrokenLinks brokenLinks = new BrokenLinks();
+            BrokenLinks brokenLinks = new BrokenLinks(driver);
             brokenLinks.NavigateToBrokenLinks();
             
             brokenLinks.ValidImage();
@@ -20,9 +22,9 @@ namespace DemoqaProject
         [Test]
         public void CheckValidAndInvalidLinks()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            BrokenLinks brokenLinks = new BrokenLinks();
+            BrokenLinks brokenLinks = new BrokenLinks(driver);
             brokenLinks.NavigateToBrokenLinks();
             
             brokenLinks.ValidAndInvalidLinks();

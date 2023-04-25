@@ -8,9 +8,9 @@ namespace DemoqaProject
         [Test]
         public void CheckHomeLink()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.FirstLinkOpenNewTab();
@@ -20,9 +20,9 @@ namespace DemoqaProject
         [Test]
         public void CheckHome2Link()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.SecondLinkOpenNewTab();
@@ -32,9 +32,9 @@ namespace DemoqaProject
         [Test]
         public void CheckCreated()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickCreatedButton();
@@ -44,9 +44,9 @@ namespace DemoqaProject
         [Test]
         public void CheckNoContent()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickNoContentButton();
@@ -56,9 +56,9 @@ namespace DemoqaProject
         [Test]
         public void CheckMoved()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickMovedButton();
@@ -68,9 +68,9 @@ namespace DemoqaProject
         [Test]
         public void CheckBadRequest()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickBadRequestButton();
@@ -80,9 +80,9 @@ namespace DemoqaProject
         [Test]
         public void CheckUnauthorized()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickUnauthorizedButton();
@@ -92,9 +92,9 @@ namespace DemoqaProject
         [Test]
         public void CheckForbidden()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickForbiddenButton();
@@ -104,9 +104,9 @@ namespace DemoqaProject
         [Test]
         public void CheckNotFound()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            Links links = new Links();
+            Links links = new Links(driver);
             links.NavigateToLinks();
             
             links.ClickNotFoundButton();

@@ -8,7 +8,7 @@ namespace DemoqaProject
         [Test]
         public void CheckBooksText()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToBookPage();
             Book book = new Book();
             Assert.AreEqual(StoreElementTexts.bookText, book.GetHeaderText());

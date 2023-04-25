@@ -11,9 +11,9 @@ namespace DemoqaProject
             //Appears 17 classes when selected all
             int allSelectedClasses = 17;
             
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            CheckBox checkBox = new CheckBox();
+            CheckBox checkBox = new CheckBox(driver);
             checkBox.NavigateToCheckBox();
 
             checkBox.SelectAll();
@@ -26,9 +26,9 @@ namespace DemoqaProject
             //Appears 0 classes when deselected all
             int allSelectedClasses = 0;
             
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            CheckBox checkBox = new CheckBox();
+            CheckBox checkBox = new CheckBox(driver);
             checkBox.NavigateToCheckBox();
             
             Assert.IsTrue(checkBox.textSuccess.Count==allSelectedClasses);
@@ -37,9 +37,9 @@ namespace DemoqaProject
         [Test]
         public void SelectSpecificCategories()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            CheckBox checkBox = new CheckBox();
+            CheckBox checkBox = new CheckBox(driver);
             checkBox.NavigateToCheckBox();
             
             Assert.AreEqual(checkBox.expectedTexts, checkBox.SelectSpecificCategories());
@@ -48,9 +48,9 @@ namespace DemoqaProject
         [Test]
         public void SelectGroupAndUncheckSubs()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            CheckBox checkBox = new CheckBox();
+            CheckBox checkBox = new CheckBox(driver);
             checkBox.NavigateToCheckBox();
             
             Assert.AreEqual(checkBox.commandsText, checkBox.SelectGroupAndUncheckSub());

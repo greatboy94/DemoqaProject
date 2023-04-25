@@ -11,9 +11,9 @@ namespace DemoqaProject
         [Test]
         public void CreateTest()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            WebTables webTables = new WebTables();
+            WebTables webTables = new WebTables(driver);
             webTables.NavigateToWebTables();
             
             //Filling form
@@ -28,9 +28,9 @@ namespace DemoqaProject
         [Test]
         public void UpdateTest()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            WebTables webTables = new WebTables();
+            WebTables webTables = new WebTables(driver);
             webTables.NavigateToWebTables();
             
             //Filling form
@@ -44,9 +44,9 @@ namespace DemoqaProject
         [Test]
         public void DeleteTest()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            WebTables webTables = new WebTables();
+            WebTables webTables = new WebTables(driver);
             webTables.NavigateToWebTables();
             
             //Filling form
@@ -60,9 +60,9 @@ namespace DemoqaProject
         [Test]
         public void Pagination()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            WebTables webTables = new WebTables();
+            WebTables webTables = new WebTables(driver);
             webTables.NavigateToWebTables();
             
             //Changing pagination

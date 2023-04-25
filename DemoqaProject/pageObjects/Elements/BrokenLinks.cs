@@ -62,5 +62,9 @@ namespace DemoqaProject.PageObjects
             Console.WriteLine("Found Valid URL: " + validLinks);
             Console.WriteLine("Found Invalid URL: " + brokenLinks);
         }
+
+        public BrokenLinks(IWebDriver driver) : base(driver)
+        {
+        }
     }
 }

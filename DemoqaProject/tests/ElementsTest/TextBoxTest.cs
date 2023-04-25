@@ -9,9 +9,9 @@ namespace DemoqaProject
         [Test]
         public void FillForm()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            TextBox textBox = new TextBox();
+            TextBox textBox = new TextBox(driver);
             textBox.NavigateToTextBox();
             textBox.FillForm(TextBox.fullName, TextBox.email, TextBox.currentAddress, TextBox.permanentAddress);
             
@@ -25,9 +25,9 @@ namespace DemoqaProject
         [Test]
         public void CheckInvalidEmail()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            TextBox textBox = new TextBox();
+            TextBox textBox = new TextBox(driver);
             textBox.NavigateToTextBox();
             
             textBox.FillForm(TextBox.fullName, TextBox.invalidEmail, TextBox.currentAddress, TextBox.permanentAddress);
@@ -37,9 +37,9 @@ namespace DemoqaProject
         [Test]
         public void CheckPlaceholders()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToElementPage();
-            TextBox textBox = new TextBox();
+            TextBox textBox = new TextBox(driver);
             textBox.NavigateToTextBox();
             
             //Checking placeholders

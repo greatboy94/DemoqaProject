@@ -122,6 +122,10 @@ namespace DemoqaProject.PageObjects
             searchBox.Click();
             searchBox.SendKeys(searchText);
         }
+
+        public WebTables(IWebDriver driver) : base(driver)
+        {
+        }
     }
 }
 

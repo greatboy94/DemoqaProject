@@ -2,7 +2,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
-using System.Threading.Tasks;
 
 namespace DemoqaProject
 {

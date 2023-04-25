@@ -8,7 +8,7 @@ namespace DemoqaProject
         [Test]
         public void CheckWidgetsText()
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToWidgetsPage();
             Widgets widgets = new Widgets();
             Assert.AreEqual(StoreElementTexts.widgetsText, widgets.GetHeaderText());

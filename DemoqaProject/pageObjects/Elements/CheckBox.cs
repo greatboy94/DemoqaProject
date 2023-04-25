@@ -59,5 +59,9 @@ namespace DemoqaProject.PageObjects
             }
             return storeTexts;
         }
+
+        public CheckBox(IWebDriver driver) : base(driver)
+        {
+        }
     }   
 }

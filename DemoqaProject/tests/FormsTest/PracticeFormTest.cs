@@ -10,7 +10,7 @@ namespace DemoqaProject
         [TestCase("Andrew", "Garfield", "Andrew@gmail.com", "", "Computer", "Chicago, USA", "ncr", "Delhi", false)]
         public void ValidCredentialTest(string firstname, string lastname, string useremail, string usernumber, string subject, string address, string state, string city, bool testCaseOrder)
         {
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
             homePage.NavigateToFormsPage();
             PracticeForm practiceForm = new PracticeForm();
             practiceForm.NavigateToPracticeForm();
